@@ -40,6 +40,11 @@
     "hooks": {
       "init": "./src/hooks/init/config"
     },
+    "topics": {
+      "env": {
+        "description": "manage environment variables"
+      }
+    },
     "plugins": [
       "@oclif/plugin-help"
     ]
