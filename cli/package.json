@@ -10,7 +10,8 @@
   "dependencies": {
     "@oclif/command": "^1",
     "@oclif/config": "^1",
-    "@oclif/plugin-help": "^2"
+    "@oclif/plugin-help": "^2",
+    "fs-extra": "^8.0.1"
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1",
@@ -34,6 +35,9 @@
   "oclif": {
     "bin": "wutenv",
     "commands": "./src/commands",
+    "hooks": {
+      "init": "./src/hooks/init/config"
+    },
     "plugins": [
       "@oclif/plugin-help"
     ]
