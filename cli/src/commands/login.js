@@ -22,12 +22,12 @@ class LoginCommand extends Command {
 
       // save the user token
       // [todo] save the token in a secure way
-      ConfigService.set(this.config, 'token', result);
+      ConfigService.set(this.config, '_token', result);
 
       this.log('Login successful');
     } catch (err) {
       // [todo] log nice error message
-      this.error(err);
+      this.error(err.response.statusText ? err.response.statusText : err);
     }
   }
 }

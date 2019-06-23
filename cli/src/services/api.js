@@ -30,9 +30,9 @@ const env = async app => {
 };
 
 const login = async (username, password) => {
-  // await axios.post(`${URL}/api/login`, { username, password });
+  const result = await axios.post(`${URL}/api/login`, { username, password });
 
-  return Promise.resolve('ABCDEF');
+  return result.data;
 };
 
 const setAppRole = async (app, username, role) => {

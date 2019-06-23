@@ -1,0 +1,22 @@
+{
+  "name": "wutenv-server",
+  "version": "0.0.0",
+  "main": "./src/index.js",
+  "repository": "bpdo/wutenv",
+  "author": "Bryan Donovan @bpdo",
+  "homepage": "https://github.com/bpdo/wutenv",
+  "bugs": "https://github.com/bpdo/wutenv/issues",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  },
+  "scripts": {
+    "start": "node ./src/index.js",
+    "debug": "NODE_ENV=development nodemon ./src/index.js"
+  }
+}

@@ -6,7 +6,7 @@ class LogoutCommand extends Command {
   async run() {
     try {
       // remove the user token from the rc file
-      ConfigService.unset(this.config, 'token');
+      ConfigService.unset(this.config, '_token');
 
       this.log('Logged out');
     } catch (err) {
