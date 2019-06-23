@@ -27,7 +27,7 @@ class LoginCommand extends Command {
       this.log('Login successful');
     } catch (err) {
       // [todo] log nice error message
-      this.error(err.response.statusText ? err.response.statusText : err);
+      this.error(err.response ? err.response.statusText : err);
     }
   }
 }
