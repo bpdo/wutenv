@@ -1,6 +1,8 @@
 # Logs
 logs
 *.log
+*-debug.log
+*-error.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -19,6 +21,7 @@ coverage
 
 # nyc test coverage
 .nyc_output
+/.nyc_output
 
 # Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
@@ -59,3 +62,12 @@ typings/
 
 # next.js build output
 .next
+
+# temporary
+/tmp
+
+# distribution output
+/dist
+
+# npm (using yarn)
+/package-lock.json
