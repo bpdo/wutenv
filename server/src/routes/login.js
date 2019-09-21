@@ -1,9 +1,8 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
 
-const Provider = require('../providers');
-
-const router = express.Router();
+const _router = express.Router();
+const _users = {};
 
 const createToken = async payload => {
   return new Promise((resolve, reject) => {
@@ -18,13 +17,19 @@ const createToken = async payload => {
   });
 };
 
-router.post('/', async (req, res, next) => {
+_router.post('/', async (req, res, next) => {
   try {
     // [todo] validate the body params
+    const { password, username } = req.body;
 
-    // check if the username and password match the provider
+    // if the username doesn't exist, add the user
+    if (!_users[username]) {
+      _users[username] = { password };
+    }
+
+    // if the password doesn't match, 401
     // [todo] encrypt the password before checking
-    if (!Provider.login(req.body.username, req.body.password)) {
+    if (_users[username].password !== password) {
       return res.status(401).send();
     }
 
@@ -37,4 +42,4 @@ router.post('/', async (req, res, next) => {
   }
 });
 
-module.exports = router;
+module.exports = _router;
