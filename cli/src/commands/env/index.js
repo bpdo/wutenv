@@ -11,7 +11,7 @@ class EnvCommand extends Command {
       // validate the args
       ValidatorService(args, 'app');
 
-      const result = await ApiService(this.config._rc.url).env();
+      const result = await ApiService.env();
 
       // [todo] print env vars in a nicer format
       // https://oclif.io/docs/table

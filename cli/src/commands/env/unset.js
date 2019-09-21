@@ -13,7 +13,7 @@ class UnsetEnvCommand extends Command {
       ValidatorService(args, 'app', 'name');
 
       // call the unset env api
-      const result = await ApiService(this.config._rc.url).unsetEnv(app, name);
+      const result = await ApiService.unsetEnv(app, name);
 
       // [todo] print env vars in a nicer format
       // https://oclif.io/docs/table

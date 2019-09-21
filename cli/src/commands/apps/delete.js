@@ -12,7 +12,7 @@ class DeleteAppCommand extends Command {
       ValidatorService(args, 'app');
 
       // call the delete app api
-      const result = await ApiService(this.config._rc.url).deleteApp(args.app);
+      const result = await ApiService.deleteApp(args.app);
 
       this.log(result ? '👍' : '👎');
     } catch (err) {

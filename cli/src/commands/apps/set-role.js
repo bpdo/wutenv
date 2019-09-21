@@ -13,7 +13,7 @@ class SetAppRoleCommand extends Command {
       ValidatorService(args, 'app', 'username', 'role');
 
       // call the set app role api
-      const result = await ApiService(this.config._rc.url).setAppRole(app, username, role);
+      const result = await ApiService.setAppRole(app, username, role);
 
       this.log(result ? '👍' : '👎');
     } catch (err) {

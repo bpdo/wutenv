@@ -13,7 +13,7 @@ class SetEnvCommand extends Command {
       ValidatorService(args, 'app', 'name', 'value');
 
       // call the set env api
-      const result = await ApiService(this.config._rc.url).setEnv(app, name, value);
+      const result = await ApiService.setEnv(app, name, value);
 
       // [todo] print env vars in a nicer format
       // https://oclif.io/docs/table

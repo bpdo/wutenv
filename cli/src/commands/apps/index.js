@@ -6,7 +6,7 @@ class AppsCommand extends Command {
   async run() {
     try {
       // call the apps list api
-      this.log(await ApiService(this.config._rc.url).apps());
+      this.log(await ApiService.apps());
     } catch (err) {
       this.error(err);
     }

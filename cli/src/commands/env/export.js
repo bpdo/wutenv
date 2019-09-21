@@ -15,7 +15,7 @@ class ExportEnvCommand extends Command {
       ValidatorService(args, 'app');
 
       // get the current env vars
-      const result = await ApiService(this.config._rc.url).env(app);
+      const result = await ApiService.env(app);
 
       // create a .env formatted string
       const raw = Object.keys(result)

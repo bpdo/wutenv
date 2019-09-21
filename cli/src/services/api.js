@@ -1,23 +1,41 @@
 const axios = require('axios');
 
-let URL = null;
+const ConfigService = require('../services/config');
+
+// get the token from the configuration
+const { _token: TOKEN, url: URL } = ConfigService.load();
 
 const apps = async () => {
-  // const apps = await axios.get(`${URL}/api/apps`);
+  const result = await axios.get(`${URL}/api/apps`, {
+    headers: { Authorization: `Bearer ${TOKEN}` },
+  });
 
-  return Promise.resolve(['app1', 'app2']);
+  return result.data;
 };
 
-const createApp = async name => {
-  // await axios.post(`${URL}/api/apps`, { name });
+const createApp = async id => {
+  const result = await axios.post(
+    `${URL}/api/apps`,
+    {
+      id,
+    },
+    {
+      headers: { Authorization: `Bearer ${TOKEN}` },
+    }
+  );
 
-  return Promise.resolve(true);
+  return result.data;
 };
 
-const deleteApp = async name => {
-  // await axios.delete(`${URL}/api/apps`, { name });
+const deleteApp = async id => {
+  const result = await axios.delete(`${URL}/api/apps`, {
+    headers: { Authorization: `Bearer ${TOKEN}` },
+    data: {
+      id,
+    },
+  });
 
-  return Promise.resolve(true);
+  return result.data;
 };
 
 const env = async app => {
@@ -64,20 +82,15 @@ const unsetEnv = async (app, name) => {
   });
 };
 
-module.exports = url => {
-  // set the API url
-  URL = url;
-
-  // return the api services
-  return {
-    apps,
-    createApp,
-    deleteApp,
-    env,
-    login,
-    setAppRole,
-    setEnv,
-    unsetAppRole,
-    unsetEnv,
-  };
+// return the api services
+module.exports = {
+  apps,
+  createApp,
+  deleteApp,
+  env,
+  login,
+  setAppRole,
+  setEnv,
+  unsetAppRole,
+  unsetEnv,
 };

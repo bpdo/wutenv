@@ -13,7 +13,7 @@ class UnsetAppRoleCommand extends Command {
       ValidatorService(args, 'app', 'username');
 
       // call the set app role api
-      const result = await ApiService(this.config._rc.url).unsetAppRole(app, username);
+      const result = await ApiService.unsetAppRole(app, username);
 
       this.log(result ? '👍' : '👎');
     } catch (err) {

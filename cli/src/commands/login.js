@@ -18,7 +18,7 @@ class LoginCommand extends Command {
       }
 
       // call the login api
-      const result = await ApiService(this.config._rc.url).login(args.username, args.password);
+      const result = await ApiService.login(args.username, args.password);
 
       // save the user token
       // [todo] save the token in a secure way

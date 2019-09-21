@@ -12,7 +12,7 @@ class CreateAppCommand extends Command {
       ValidatorService(args, 'app');
 
       // call the create app api
-      const result = await ApiService(this.config._rc.url).createApp(args.app);
+      const result = await ApiService.createApp(args.app);
 
       this.log(result ? '👍' : '👎');
     } catch (err) {
